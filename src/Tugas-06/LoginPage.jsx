@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 
 function LoginPage() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const isUsername = email !== "" && !email.includes("@");
+  const isEmail = email.includes("@");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Username:", username);
+    if (isUsername || email === "") {
+      alert("Gagal Login! Harap masukkan format e-mail yang valid.");
+      return;
+    }
+    console.log("Email anda adalah:", email);
     console.log("Password:", password);
   };
 
@@ -82,23 +89,33 @@ function LoginPage() {
              
               <div className="space-y-2">
                 <label
-                  htmlFor="username"
+                  htmlFor="email"
                   className="block text-sm font-medium text-gray-300"
                 >
-                  Username
+                  E-mail
                 </label>
                 <input
-                  id="username"
+                  id="email"
                   type="text"
-                  name="username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  placeholder="masukan username anda"
-                  className="w-full px-5 py-3.5 bg-white/10 rounded-full text-sm text-white placeholder-gray-400 border border-transparent focus:border-purple-400/50 focus:outline-none transition"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="masukan email anda"
+                  className={`w-full px-5 py-3.5 bg-white/10 rounded-full text-sm text-white placeholder-gray-400 border border-transparent focus:border-purple-400/50 focus:outline-none transition ${
+                    isUsername ? "border-red-500 focus:border-red-500" : isEmail ? "border-green-500 focus:border-green-500" : "border-transparent focus:border-purple-400/50"
+                  }`}
                 />
-                <small className="text-white/30 text-xs block">
-                  Username anda adalah : {username}
+                {isUsername && (
+                    <small className="text-red-400 text-xs block pl-2 font-medium">
+                  ini username, harus menggunakan e-mail!
                 </small>
+                )}
+                {isEmail && (
+                    <small className="text-green-400 text-xs block pl-2">
+                  E-mail anda adalah : {email}
+                </small>
+                )}
+                
               </div>
 
              

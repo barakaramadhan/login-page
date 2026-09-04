@@ -8,7 +8,14 @@ import LoginForm from './FormUncontrolled/LoginForm'
 import LoginFormWithUseRef from './FormUncontrolled/LoginFormWithUseRef'
 import LoginFormControlled from './FormUncontrolled/LoginFormControlled'
 import LoginPage from './Tugas-06/LoginPage'
-
+import RadixPrimitives from './StyleComponents/RadixPrimitives'
+import RadixThemes from './StyleComponents/RadixThemes'
+import SimpleCounter from './UseEffect/SimpleCounter'
+import { RouterProvider } from 'react-router'
+import router from './router'
+// import Home from './LearnUseContext/Home'
+import Context from './LearnUseContext/Context'
+import Home from './LearnTwoUseContext/Home'
 function App() {
   return (
     <>
@@ -20,7 +27,15 @@ function App() {
       {/* <LoginForm /> */}
       {/* <LoginFormWithUseRef /> */}
       {/* <LoginFormControlled /> */}
-      <LoginPage />
+      {/* <LoginPage /> */}
+      {/* <RadixPrimitives/> */}
+      {/* <RadixThemes/> */}
+      {/* style componenst */}
+      {/* <SimpleCounter /> */}
+      {/* <RouterProvider router={router}/> */}
+      {/* <Home/> */}
+      {/* <Context/> */}
+      <Home/>
     </>
   )
 }
